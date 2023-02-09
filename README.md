@@ -106,3 +106,26 @@ SELECT * FROM customer
 WHERE store_id=1
 order by last_name desc
 limit 4;
+
+
+ODEV6
+
+1-film tablosunda bulunan rental_rate sütunundaki değerlerin ortalaması nedir?
+
+SELECT AVG(rental_rate) FROM film;--ortalama verir
+SELECT round (AVG(rental_rate) ,2 ) FROM film; --yuvarlama yapar round ile
+
+2-film tablosunda bulunan filmlerden kaç tanesi 'C' karakteri ile başlar?
+
+SELECT count(film) FROM film
+WHERE title like'C%';
+
+3-film tablosunda bulunan filmlerden rental_rate değeri 0.99 a eşit olan en uzun (length) film kaç dakikadır?
+
+SELECT max(length) FROM film
+WHERE rental_rate = 0.99;
+
+4-film tablosunda bulunan filmlerin uzunluğu 150 dakikadan büyük olanlarına ait kaç farklı replacement_cost değeri vardır?
+
+SELECT count(distinct replacement_cost) FROM film
+WHERE length >150;
