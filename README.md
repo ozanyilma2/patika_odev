@@ -63,7 +63,7 @@ select DISTINCT(replacement_cost) FROM FILM ;
 
 2-film tablosunda bulunan replacement_cost sütununda birbirinden farklı kaç tane veri vardır?
 
-select COUNT( DISTINCT replacement_cost ) FROM FILM ;
+select COUNT( DISTINCT replacement_cost ) FROM FILM ; --count sayıyı verir distinc ise benzersiz değerleri getirir
 
 3-film tablosunda bulunan film isimlerinde (title) kaç tanesini T karakteri ile başlar ve aynı zamanda rating 'G' ye eşittir?
 
