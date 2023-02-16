@@ -242,3 +242,41 @@ except
 select first_name from customer;
 
 4-İlk 3 sorguyu tekrar eden veriler için de yapalım.
+
+ODEV12
+
+1-film tablosunda film uzunluğu length sütununda gösterilmektedir. Uzunluğu ortalama film uzunluğundan fazla kaç tane film vardır?
+
+select COUNT(*) from film
+WHERE length >
+(
+select AVG(length ) from film
+);
+
+2-film tablosunda en yüksek rental_rate değerine sahip kaç tane film vardır?
+
+select COUNT(*) from film
+WHERE RENTAL_RATE  =
+(
+select MAX(RENTAL_RATE ) from film
+);
+
+3-film tablosunda en düşük rental_rate ve en düşün replacement_cost değerlerine sahip filmleri sıralayınız.
+
+select title , RENTAL_RATE , replacement_cost  from film
+WHERE 
+RENTAL_RATE  =
+(
+select min(rental_rate) from film
+)
+and 
+replacement_cost  =
+(
+select min(replacement_cost) from film
+);
+
+4-payment tablosunda en fazla sayıda alışveriş yapan müşterileri(customer) sıralayınız.
+
+select customer_id, count(rental_id) from payment
+group by customer_id 
+order by count(rental_id) desc
